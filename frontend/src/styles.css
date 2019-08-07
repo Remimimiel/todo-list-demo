@@ -1,0 +1,47 @@
+.todo-app {
+    font-family: sans-serif;
+}
+
+.todo-head {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.todo-input {
+    width: 250px;
+    margin-left: 20px;
+}
+
+.add-todo-button {
+    margin-left: 5px;
+}
+
+.visibility-filter {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.filter-card {
+    width: 30%;
+}
+
+.todo-list {
+    margin-top: 1rem;
+    text-align: left;
+    list-style: none;
+}
+
+.todo-item {
+    font-family: monospace;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.todo-item-text-completed {
+    text-decoration: line-through;
+    color: lightgray;
+}
+
+ul {
+    padding-inline-start: 15px;
+}
