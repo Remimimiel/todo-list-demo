@@ -8,6 +8,7 @@
     "react-scripts": "3.0.1",
     "redux": "latest",
     "react-redux": "latest",
+    "redux-saga": "latest",
     "reselect": "latest",
     "antd": "latest",
     "classnames": "latest",

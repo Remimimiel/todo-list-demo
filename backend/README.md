@@ -1,4 +1,4 @@
-1. Download python module
+1. Download required module
 
     ```js {.line-numbers}
     pip install -r requirements.txt
