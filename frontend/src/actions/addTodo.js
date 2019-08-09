@@ -1,13 +1,12 @@
-import { ADD_TODO } from './actionTypes'
+import { ADD_TODO } from './actionTypes';
 
-
-let nextId = 0;
 
 const addTodo = (content) => ({
     type: ADD_TODO,
     payload: {
-        id: ++nextId,
-        content
+        id: -1,
+        content,
+        completed: false
     }
 });
 

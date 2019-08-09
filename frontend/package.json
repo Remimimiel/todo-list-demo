@@ -8,11 +8,13 @@
     "react-scripts": "3.0.1",
     "redux": "latest",
     "react-redux": "latest",
+    "reselect": "latest",
     "antd": "latest",
     "classnames": "latest",
     "react-app-rewired": "latest",
     "customize-cra": "latest",
-    "babel-plugin-import": "latest"
+    "babel-plugin-import": "latest",
+    "axios": "latest"
   },
   "scripts": {
     "start": "react-app-rewired start",

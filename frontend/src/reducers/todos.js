@@ -1,39 +1,27 @@
 import { ADD_TODO, TOGGLE_TODO } from '../actions/actionTypes'
 
 
-let initialState = {
-    allIds: [],
-    byIds: {}
-};
+let initialState = []
 
 const todos = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO: {
-            const { id, content } = action.payload;
-            return {
-                ...state,
-                allIds: [...state.allIds, id],
-                byIds: {
-                    ...state.byIds,
-                    [id]: {
-                        content,
-                        completed: false
-                    }
+            let { id, content, completed } = action.payload;
+            if (id === -1) {
+                id = state[state.length - 1].id + 1;
+            }
+
+            return [
+                ...state, {
+                    id, content, completed
                 }
-            };
+            ];
         }
         case TOGGLE_TODO: {
-            const { id } = action.payload;
-            return {
-                ...state,
-                byIds: {
-                    ...state.byIds,
-                    [id]: {
-                        ...state.byIds[id],
-                        completed: !state.byIds[id].completed
-                    }
-                }
-            };
+            return state.map((todo) =>
+                (action.payload.id === todo.id)
+                ? {...todo, completed: !todo.completed} : todo
+            );
         }
         default:
             return state;

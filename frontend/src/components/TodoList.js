@@ -14,7 +14,7 @@ const TodoList = ({ todos }) => (
             />
         ) : 'No todos, yay!'}
     </ul>
-);
+)
 
 const mapStateToProps = (state) => {
     const { visibilityFilter } = state;
