@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import Todo from './Todo'
-import { getTodosByVisibilityFilter } from '../utils/selectors'
+import Todo from './Todo';
+import { getVisibleTodos } from '../selectors';
 
 
 const TodoList = ({ todos }) => (
@@ -17,8 +17,7 @@ const TodoList = ({ todos }) => (
 )
 
 const mapStateToProps = (state) => {
-    const { visibilityFilter } = state;
-    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+    const todos = getVisibleTodos(state);
     return { todos };
 };
 

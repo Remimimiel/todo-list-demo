@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import App from './components';
 import { getStore, dispatchFromDB } from './utils/store';
 import { list } from './api/todoApi';
 

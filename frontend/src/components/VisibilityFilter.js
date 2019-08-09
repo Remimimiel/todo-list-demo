@@ -5,7 +5,7 @@ import { Card } from 'antd';
 
 import setFilter from '../actions/setFilter';
 import { VISIBILITY_FILTER } from '../utils/constants';
-import TodoList from './TodoList'
+import TodoList from './TodoList';
 
 
 // 卡片切换tab的key和标题

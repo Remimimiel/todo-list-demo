@@ -1,10 +1,10 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import cx from 'classnames'
+import React from 'react';
+import { connect } from 'react-redux';
+import cx from 'classnames';
 
-import { Checkbox } from 'antd'
+import { Checkbox } from 'antd';
 
-import toggleTodo from '../actions/toggleTodo'
+import toggleTodo from '../actions/toggleTodo';
 
 
 const Todo = ({ todo, toggleTodo }) => (

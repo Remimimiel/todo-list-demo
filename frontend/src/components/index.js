@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import VisibilityFilter from './components/VisibilityFilter';
-import AddTodo from './components/AddTodo';
+import VisibilityFilter from './VisibilityFilter';
+import AddTodo from './AddTodo';
 
-import './styles.css';
+import '../styles.css';
 
 
 const App = ({ store }) => (
