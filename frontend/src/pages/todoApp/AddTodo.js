@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Input, Button } from 'antd';
 
-import addTodoAsync from '../actions/addTodo';
+import addTodoAsync from '../../actions/addTodo';
 
 
 class AddTodo extends React.Component {
@@ -33,7 +33,7 @@ class AddTodo extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='add-todo'>
                 <Input
                     className='todo-input'
                     placeholder='Todo Content'

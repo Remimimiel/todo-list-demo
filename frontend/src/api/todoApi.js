@@ -1,26 +1,31 @@
 import axios from 'axios';
 
-import api from './apiList';
 
+const baseUrl = 'http://localhost:8000/todo-list/'
+
+const todo = {
+    detail: (id) => baseUrl + 'todo/' + id + '/',
+    list: () => baseUrl + 'todo/'
+};
 
 const list = () => {
-    return axios.get(api.todo.list());
+    return axios.get(todo.list());
 };
 
 const retreive = (id) => {
-    return axios.get(api.todo.detail(id));
+    return axios.get(todo.detail(id));
 };
 
 const create = (data) => {
-    return axios.post(api.todo.list(), data);
+    return axios.post(todo.list(), data);
 };
 
 const update = (id, data) => {
-    return axios.put(api.todo.detail(id), data);
+    return axios.put(todo.detail(id), data);
 };
 
 const remove = (id) => {
-    return axios.delete(api.todo.detail(id));
+    return axios.delete(todo.detail(id));
 };
 
 export default {

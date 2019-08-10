@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { Checkbox } from 'antd';
 
-import toggleTodoAsync from '../actions/toggleTodo';
+import toggleTodoAsync from '../../actions/toggleTodo';
 
 
 const Todo = ({ todo, toggleTodoAsync }) => (

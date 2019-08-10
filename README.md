@@ -1,6 +1,6 @@
 # todo-list-demo
 
-A simple demo for learning react, redux and django.
+A simple demo for learning react, redux, antd and django.
 
 ## Run demo
 
@@ -27,6 +27,10 @@ Thanks to
 * [redux doc](https://redux.js.org/basics/example)
 
 * [react-redux doc](https://react-redux.js.org/introduction/basic-tutorial)
+
+* [redux-saga doc](https://redux-saga.js.org/)
+
+* [redux-saga tutorial](https://github.com/redux-saga/redux-saga-beginner-tutorial/tree/sagas)
 
 * [react-antd doc](https://ant.design/docs/react/introduce)
 

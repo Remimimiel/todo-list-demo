@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { BrowserRouter } from 'react-router-dom';
 
-import App from './components';
+import App from './pages';
 import reducer from './reducers';
 import saga from './sagas';
 import api from './api';
@@ -28,10 +29,13 @@ const startApp = () => {
         const store = createStore(reducer, preLoadState, enhancer);
         // run saga
         sagaMiddleware.run(saga);
-        console.log(store.getState());
 
         let root = document.getElementById('root');
-        ReactDOM.render(<App store={store} />, root);
+        ReactDOM.render(
+            <BrowserRouter>
+                <App store={store} />
+            </BrowserRouter>,
+            root);
     }).catch(err => console.log(err));
 }
 
