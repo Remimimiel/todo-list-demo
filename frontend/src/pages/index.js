@@ -16,7 +16,7 @@ const AppHeader = ({ history }) => (
             theme='dark'
             mode='horizontal'
             defaultSelectedKeys={['todo']}
-            selectedKeys={history.location.pathname}
+            selectedKeys={[history.location.pathname]}
         >
             <Menu.Item key='todo'>
                 <Link to='/todo'>
@@ -48,17 +48,15 @@ const AppContent = ({ store }) => (
 
 const AppFooter = () => (
     <Layout.Footer className='app-footer'>
-        zx55Â©All rights reserved.
+        zx55©All rights reserved.
     </Layout.Footer>
 );
 
 const App = ({ store, history }) => (
     <Layout className='app'>
-        <div>
-            <AppHeader history={history} />
-            <AppContent store={store} />
-            <AppFooter />
-        </div>
+        <AppHeader history={history} />
+        <AppContent store={store} />
+        <AppFooter />
     </Layout>
 );
 

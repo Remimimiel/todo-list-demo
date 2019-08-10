@@ -17,4 +17,5 @@ const TodoList = ({ todos }) => (
 )
 
 // <TodoList />组件绑定filter和todos状态作为props
-export default connect((state) => ({ todos: getVisibleTodos(state) }))(TodoList);
+export default connect((state, props) =>
+    ({ todos: getVisibleTodos(state, props) }))(TodoList);

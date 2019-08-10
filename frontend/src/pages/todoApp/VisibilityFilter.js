@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import { Card } from 'antd';
 
-import setFilter from '../../actions/setFilter';
 import { VISIBILITY_FILTER } from '../../utils/constants';
 import TodoList from './TodoList';
 
@@ -21,21 +19,34 @@ const tabList = [{
     }
 ];
 
-const VisibilityFilter = ({ activeFilter, setFilter }) => (
-    <div className='visibility-filter'>
-        <Card
-            className='filter-card'
-            tabList={tabList}
-            activeTabKey={activeFilter}
-            onTabChange={(key) => setFilter(key)}
-        >
-            <TodoList />
-        </Card>
-    </div>
-);
+class VisibilityFilter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeFilter: VISIBILITY_FILTER.ALL
+        };
+    }
 
-// <VisibilityFilter />组件绑定filter状态和setFilter动作作为props
-export default connect(
-    state => ({ activeFilter: state.visibilityFilter }),
-    {setFilter}
-)(VisibilityFilter);
+    setFilter = (key) => {
+        this.setState({
+            activeFilter: key
+        });
+    }
+
+    render() {
+        return (
+            <div className='visibility-filter'>
+                <Card
+                    className='filter-card'
+                    tabList={tabList}
+                    activeTabKey={this.state.activeFilter}
+                    onTabChange={(key) => this.setFilter(key)}
+                >
+                    <TodoList visibilityFilter={this.state.activeFilter} />
+                </Card>
+            </div>
+        );
+    }
+}
+
+export default VisibilityFilter;

@@ -8,7 +8,6 @@ import App from './pages';
 import reducer from './reducers';
 import saga from './sagas';
 import api from './api';
-import { VISIBILITY_FILTER } from './utils/constants';
 
 
 const startApp = () => {
@@ -16,10 +15,7 @@ const startApp = () => {
         // load data from database
         let preLoadState = null;
         if (response.status === 200) {
-            preLoadState = {
-                todos: response.data,
-                visibilityFilter: VISIBILITY_FILTER.ALL
-            };
+            preLoadState = { todos: response.data };
         }
 
         // apply saga middleware
