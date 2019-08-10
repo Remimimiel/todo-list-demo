@@ -1,13 +1,10 @@
-import { ADD_TODO } from './actionTypes';
+import { ADD_TODO_ASYNC } from './actionTypes';
 
-
-const addTodo = (content) => ({
-    type: ADD_TODO,
+const addTodoAsync = (content) => ({
+    type: ADD_TODO_ASYNC,
     payload: {
-        id: -1,
-        content,
-        completed: false
+        content
     }
 });
 
-export default addTodo;
+export default addTodoAsync;

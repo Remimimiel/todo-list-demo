@@ -34,12 +34,8 @@ const VisibilityFilter = ({ activeFilter, setFilter }) => (
     </div>
 );
 
-const mapStateToProps = (state) => ({
-    activeFilter: state.visibilityFilter
-});
-
 // <VisibilityFilter />组件绑定filter状态和setFilter动作作为props
 export default connect(
-    mapStateToProps,
-    { setFilter }
+    state => ({ activeFilter: state.visibilityFilter }),
+    {setFilter}
 )(VisibilityFilter);

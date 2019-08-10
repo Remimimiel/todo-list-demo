@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Input, Button } from 'antd';
 
-import addTodo from '../actions/addTodo';
+import addTodoAsync from '../actions/addTodo';
 
 
 class AddTodo extends React.Component {
@@ -25,7 +25,7 @@ class AddTodo extends React.Component {
             return;
         }
 
-        this.props.addTodo(this.state.input);
+        this.props.addTodoAsync(this.state.input);
         this.setState({
             input: ''
         });
@@ -56,5 +56,5 @@ class AddTodo extends React.Component {
 // <AddTodo />组件绑定addTodo动作作为props
 export default connect(
     null,
-    { addTodo }
+    { addTodoAsync }
 )(AddTodo);

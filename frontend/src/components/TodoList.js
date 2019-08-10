@@ -16,12 +16,5 @@ const TodoList = ({ todos }) => (
     </ul>
 )
 
-const mapStateToProps = (state) => {
-    const todos = getVisibleTodos(state);
-    return { todos };
-};
-
 // <TodoList />组件绑定filter和todos状态作为props
-export default connect(
-    mapStateToProps
-)(TodoList);
+export default connect((state) => ({ todos: getVisibleTodos(state) }))(TodoList);

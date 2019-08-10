@@ -11,11 +11,13 @@
     "redux-saga": "latest",
     "reselect": "latest",
     "antd": "latest",
-    "classnames": "latest",
+    "axios": "latest",
+    "classnames": "latest"
+  },
+  "devDependencies": {
     "react-app-rewired": "latest",
-    "customize-cra": "latest",
     "babel-plugin-import": "latest",
-    "axios": "latest"
+    "customize-cra": "latest"
   },
   "scripts": {
     "start": "react-app-rewired start",

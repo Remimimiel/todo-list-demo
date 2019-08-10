@@ -4,14 +4,14 @@ import cx from 'classnames';
 
 import { Checkbox } from 'antd';
 
-import toggleTodo from '../actions/toggleTodo';
+import toggleTodoAsync from '../actions/toggleTodo';
 
 
-const Todo = ({ todo, toggleTodo }) => (
+const Todo = ({ todo, toggleTodoAsync }) => (
     <li className='todo-item'>
         <Checkbox
             checked={todo.completed}
-            onChange={() => toggleTodo(todo.id)}
+            onChange={() => toggleTodoAsync(todo.id)}
         >
             {/* cx()用来动态生成className
                 todo.completed !== true -> className='todo-item-text'
@@ -29,7 +29,4 @@ const Todo = ({ todo, toggleTodo }) => (
 );
 
 // <Todo />组件绑定action: toggleTodo作为props
-export default connect(
-    null,
-    { toggleTodo }
-)(Todo);
+export default connect(null, { toggleTodoAsync })(Todo);
