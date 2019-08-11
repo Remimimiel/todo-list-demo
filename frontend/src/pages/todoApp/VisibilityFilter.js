@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Card } from 'antd';
 
@@ -19,34 +19,19 @@ const tabList = [{
     }
 ];
 
-class VisibilityFilter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeFilter: VISIBILITY_FILTER.ALL
-        };
-    }
+export default () => {
+    const [filter, setFilter] = useState(VISIBILITY_FILTER.ALL);
 
-    setFilter = (key) => {
-        this.setState({
-            activeFilter: key
-        });
-    }
-
-    render() {
-        return (
-            <div className='visibility-filter'>
-                <Card
-                    className='filter-card'
-                    tabList={tabList}
-                    activeTabKey={this.state.activeFilter}
-                    onTabChange={(key) => this.setFilter(key)}
-                >
-                    <TodoList visibilityFilter={this.state.activeFilter} />
-                </Card>
-            </div>
-        );
-    }
-}
-
-export default VisibilityFilter;
+    return (
+        <div className='visibility-filter'>
+            <Card
+                className='filter-card'
+                tabList={tabList}
+                activeTabKey={filter}
+                onTabChange={(key) => setFilter(key)}
+            >
+                <TodoList visibilityFilter={filter} />
+            </Card>
+        </div>
+    );
+};

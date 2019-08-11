@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { Input, Button } from 'antd';
@@ -6,51 +6,40 @@ import { Input, Button } from 'antd';
 import addTodoAsync from '../../actions/addTodo';
 
 
-class AddTodo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            input: ''
-        };
-    }
+const AddTodo = ({ addTodoAsync }) => {
+    const [input, setInput] = useState('');
 
-    handleInput = (input) => {
-        this.setState({
-            input: input
-        });
-    }
+    const updateInput = (value) => {
+        setInput(value);
+    };
 
-    handleSubmit = () => {
-        if (!this.state.input.trim()) {
+    const handleClick = () => {
+        if (!input.trim()) {
             return;
         }
 
-        this.props.addTodoAsync(this.state.input);
-        this.setState({
-            input: ''
-        });
-    }
+        addTodoAsync(input);
+        setInput('');
+    };
 
-    render() {
-        return (
-            <div className='add-todo'>
-                <Input
-                    className='todo-input'
-                    placeholder='Todo Content'
-                    value={this.state.input}
-                    allowClear
-                    onChange={(e) => this.handleInput(e.target.value)}
-                />
-                <Button
-                    className='add-todo-button'
-                    type='normal'
-                    shape='circle'
-                    icon='plus'
-                    onClick={this.handleSubmit}
-                />
-            </div>
-        )
-    }
+    return (
+        <div className='add-todo'>
+            <Input
+                className='todo-input'
+                placeholder='Todo Content'
+                value={input}
+                allowClear
+                onChange={(e) => updateInput(e.target.value)}
+            />
+            <Button
+                className='add-todo-button'
+                type='normal'
+                shape='circle'
+                icon='plus'
+                onClick={handleClick}
+            />
+        </div>
+    );
 }
 
 // <AddTodo />组件绑定addTodo动作作为props

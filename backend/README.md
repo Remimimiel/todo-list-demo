@@ -4,7 +4,7 @@
     pip install -r requirements.txt
     ```
 
-2. Create `backend/mysql.py` and complete the database info.
+2. Create `backend/db.py` and complete the database info.
 
 3. Create corresponding table `todo`
 

@@ -5,11 +5,9 @@ import AddTodo from './AddTodo';
 import VisibilityFilter from './VisibilityFilter';
 
 
-export default function({ store }) {
-    return (
-        <Provider store={store}>
-            <AddTodo />
-            <VisibilityFilter />
-        </Provider>
-    );
-};
+export default ({ store }) => (
+    <Provider store={store}>
+        <AddTodo />
+        <VisibilityFilter />
+    </Provider>
+);
