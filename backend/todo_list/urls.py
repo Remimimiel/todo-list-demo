@@ -4,5 +4,5 @@ from . import views
 
 
 router = DefaultRouter()
-router.register(r'todo', views.TodoViewSet, base_name='todo')
+router.register('todo', views.TodoViewSet, base_name='todo')
 urlpatterns = router.urls

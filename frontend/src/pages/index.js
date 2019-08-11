@@ -48,7 +48,7 @@ const AppContent = ({ store }) => (
 
 const AppFooter = () => (
     <Layout.Footer className='app-footer'>
-        zx55©All rights reserved.
+        zx55 Â© All rights reserved.
     </Layout.Footer>
 );
 

@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .mysql import DB_NAME, DB_USER, DB_PASSWD, DB_HOST, DB_PORT
+from .db import MYSQL_USER, MYSQL_PASSWD, MYSQL_HOST, MYSQL_PORT, \
+    MYSQL_DB_NAME, REDIS_HOST, REDIS_PORT, REDIS_PASSWD
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,7 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Cross-domain
+ROOT_URLCONF = 'backend.urls'
+
+
+# CORS
 if DEBUG:
     CORS_ORIGIN_ALLOW_ALL = True
 else:
@@ -62,8 +66,26 @@ else:
         'localhost:3000'
     )
 
-ROOT_URLCONF = 'backend.urls'
 
+# Cache
+REST_FRAMEWORK_EXTENSIONS = {
+    'DEFAULT_CACHE_RESPONSE_TIMEOUT': 10,
+}
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://" + REDIS_HOST + ":" + REDIS_PORT,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": REDIS_PASSWD,
+        }
+    }
+}
+
+
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,11 +111,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT
+        'NAME': MYSQL_DB_NAME,
+        'USER': MYSQL_USER,
+        'PASSWORD': MYSQL_PASSWD,
+        'HOST': MYSQL_HOST,
+        'PORT': MYSQL_PORT
     }
 }
 
