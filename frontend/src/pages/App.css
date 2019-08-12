@@ -1,0 +1,19 @@
+.app {
+    font-family: sans-serif;
+}
+
+.app-header {
+    line-height: 64px;
+}
+
+.app-content {
+    padding: 0 50px;
+}
+
+.app-footer {
+    text-align: center;
+}
+
+ul {
+    padding-inline-start: 15px;
+}

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Link, Switch, Redirect, Route, withRouter } from 'react-router-dom';
 
 import { Layout, Menu, Icon } from 'antd';
 
-import TodoApp from './todoApp';
-import About from './about';
+import Loading from './Loading';
 
-import '../styles.css';
+import './App.css';
 
+
+const TodoApp = lazy(() => import('./todoApp'));
+const Click = lazy(() => import('./click'));
+const About = lazy(() => import('./about'));
 
 const AppHeader = ({ history }) => (
     <Layout.Header>
@@ -24,6 +27,12 @@ const AppHeader = ({ history }) => (
                     Todo
                 </Link>
             </Menu.Item>
+            <Menu.Item key='click'>
+                <Link to='/click'>
+                    <Icon type='up-circle' />
+                    Click-demo
+                </Link>
+            </Menu.Item>
             <Menu.Item key='about'>
                 <Link to='/about'>
                     <Icon type="info-circle" />
@@ -36,13 +45,16 @@ const AppHeader = ({ history }) => (
 
 const AppContent = ({ store }) => (
     <Layout.Content className='app-content'>
-        <Switch>
-            <Redirect exact from='/' to='/todo' />
-            <Route exact path='/todo' render={() => (
-                <TodoApp store={store} />
-            )} />
-            <Route exact path='/about' component={About} />
-        </Switch>
+        <Suspense fallback={<Loading />}>
+            <Switch>
+                <Redirect exact from='/' to='/todo' />
+                <Route exact path='/todo' render={() => (
+                    <TodoApp store={store} />
+                )} />
+                <Route exact path='/click' component={Click} />
+                <Route exact path='/about' component={About} />
+            </Switch>
+        </Suspense>
     </Layout.Content>
 );
 
