@@ -1,6 +1,6 @@
 # todo-list-demo
 
-A simple demo for learning react, redux, antd and django.
+A simple demo for learning react, redux, antd and django-rest-framework.
 
 ## Run demo
 
@@ -36,6 +36,6 @@ Thanks to
 
 * [reselect doc](https://github.com/reduxjs/reselect/blob/master/README.md)
 
-If there are any problem, please contact me.
+If there are any problem, you can raise an issue on GitHub or contact me through email.
 
 Email: czr.cn.525@gmail.com
