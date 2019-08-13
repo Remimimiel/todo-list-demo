@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { Layout, Menu, Icon } from 'antd';
 
-import Router from './Router';
+import Routes from './Routes';
 
 import './App.css';
 
@@ -41,7 +41,7 @@ const AppHeader = ({ history }) => (
 
 const AppContent = ({ store }) => (
     <Layout.Content className='app-content'>
-        <Router store={store} />
+        <Routes store={store} />
     </Layout.Content>
 );
 
