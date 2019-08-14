@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .db import MYSQL_USER, MYSQL_PASSWD, MYSQL_HOST, MYSQL_PORT, \
-    MYSQL_DB_NAME, REDIS_HOST, REDIS_PORT, REDIS_PASSWD
+from .db import MYSQL_USER, MYSQL_PASSWD, MYSQL_PORT, \
+    MYSQL_DB_NAME, REDIS_PORT, REDIS_PASSWD, HOST
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +27,7 @@ SECRET_KEY = 'edb0(=jld##i%iryx&!0lu9dr$r%4t6cknds^%)dr!6tm&2i_p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,7 +75,7 @@ REST_FRAMEWORK_EXTENSIONS = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://" + REDIS_HOST + ":" + REDIS_PORT,
+        "LOCATION": "redis://" + HOST + ":" + REDIS_PORT,
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": REDIS_PASSWD,
@@ -109,11 +109,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': MYSQL_DB_NAME,
         'USER': MYSQL_USER,
         'PASSWORD': MYSQL_PASSWD,
-        'HOST': MYSQL_HOST,
+        'HOST': HOST,
         'PORT': MYSQL_PORT
     }
 }

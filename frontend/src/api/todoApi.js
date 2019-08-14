@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+import host from './host';
 
-const baseUrl = 'http://localhost:8000/todo-list/'
+const baseUrl = 'http://' + host + ':8000/todo-list/'
 
 const todo = {
     detail: (id) => baseUrl + 'todo/' + id + '/',

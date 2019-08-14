@@ -5,10 +5,12 @@
     npm install
     ```
 
-2. Get start
+2. Create `src/api/host.js` and complete the api info
+
+3. Get start
 
     ```sh {.line-numbers}
     yarn start
     ```
 
-3. Open browser and visit `http://localhost:3000`
+4. Open browser and visit `http://localhost:3000`
