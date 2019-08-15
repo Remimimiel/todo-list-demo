@@ -25,3 +25,4 @@ yarn-error.log*
 # host info
 /src/api/host.js
 
+nohup.out

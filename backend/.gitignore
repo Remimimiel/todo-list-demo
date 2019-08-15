@@ -2,3 +2,4 @@ backend/db.py
 .idea/
 **/__pycache__
 backend/dump.rdb
+nohup.out
