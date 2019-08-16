@@ -4,3 +4,4 @@ django-cors-headers
 drf-extensions
 django-redis
 redis
+mysql-connector-python

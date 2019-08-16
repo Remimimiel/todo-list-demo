@@ -4,13 +4,14 @@ import { VISIBILITY_FILTER } from '../utils/constants';
 
 
 export const getTodos = (store) => store.todos;
-export const getVisibilityFilter = (_, props) => {
-    return props.visibilityFilter;
+export const getVisibilityFilter = (_, visibilityFilter) => {
+    return visibilityFilter;
 }
 
 // 使用reselect提供的缓存机制提升性能
 export const getVisibleTodos = createSelector(
-    [ getTodos, getVisibilityFilter ],
+    getTodos,
+    getVisibilityFilter,
     (todos, visibilityFilter) => {
         switch (visibilityFilter) {
             case VISIBILITY_FILTER.COMPLETED:

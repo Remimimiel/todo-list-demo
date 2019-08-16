@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-
+import React, { useState, useCallback } from 'react';
 import { Input, Button } from 'antd';
 
+import { useDispatch } from 'react-redux';
 import addTodoAsync from '../../actions/addTodo';
 
 
-const AddTodo = ({ addTodoAsync }) => {
+export default () => {
     const [input, setInput] = useState('');
-
-    const updateInput = (value) => {
-        setInput(value);
-    };
+    const dispatch = useDispatch();
+    const addTodoAsyncCallback = useCallback(
+        (content) => dispatch(addTodoAsync(content)),
+        [dispatch]
+    );
 
     const handleClick = () => {
         if (!input.trim()) {
             return;
         }
 
-        addTodoAsync(input);
+        addTodoAsyncCallback(input);
         setInput('');
     };
 
@@ -29,7 +29,7 @@ const AddTodo = ({ addTodoAsync }) => {
                 placeholder='Todo Content'
                 value={input}
                 allowClear
-                onChange={(e) => updateInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
             />
             <Button
                 className='add-todo-button'
@@ -40,10 +40,4 @@ const AddTodo = ({ addTodoAsync }) => {
             />
         </div>
     );
-}
-
-// <AddTodo />组件绑定addTodo动作作为props
-export default connect(
-    null,
-    { addTodoAsync }
-)(AddTodo);
+};

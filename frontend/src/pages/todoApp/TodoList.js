@@ -1,21 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Todo from './Todo';
 import { getVisibleTodos } from '../../selectors';
+import { useShallowEqualSelector } from '../../hooks';
 
 
-const TodoList = ({ todos }) => (
-    <ul className='todo-list'>
-        {todos && todos.length ? todos.map((todo, index) =>
-            <Todo
-                key={`todo-${todo.id}`}
-                todo={todo}
-            />
-        ) : 'No todos, yay!'}
-    </ul>
-)
+export default ({ visibilityFilter }) => {
+    const todos = useShallowEqualSelector((state) =>
+        getVisibleTodos(state, visibilityFilter));
 
-// <TodoList />组件绑定filter和todos状态作为props
-export default connect((state, props) =>
-    ({ todos: getVisibleTodos(state, props) }))(TodoList);
+    return (
+        <ul className='todo-list'>
+            {todos && todos.length ? todos.map((todo) =>
+                <Todo
+                    key={`todo-${todo.id}`}
+                    todo={todo}
+                />
+            ) : 'No todos, yay!'}
+        </ul>
+    );
+}
