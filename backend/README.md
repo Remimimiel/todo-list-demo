@@ -4,7 +4,7 @@
     pip install -r requirements.txt
     ```
 
-2. Create `backend/db.py` and complete the database info.
+2. Create `backend/db.py` and specify the database info.
 
 3. If you connect to the MySQL for the first time, create corresponding table `todo` first.
 

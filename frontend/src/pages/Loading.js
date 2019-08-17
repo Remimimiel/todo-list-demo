@@ -1,6 +1,11 @@
 import React from 'react';
 
+import { Icon } from 'antd';
+
 
 export default () => (
-    <div>Loading...</div>
+    <div className='loading'>
+        <Icon type='loading' className='loading-icon' />
+        <div className='loading-text'>Loading</div>
+    </div>
 );

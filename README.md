@@ -13,11 +13,18 @@ A simple demo for learning react, redux, antd and django-rest-framework.
 
     **Note:** You have to satisfy the pre-requisities in [Backend README.md](backend/README.md)
 
-2. Run react
+2. Run frontend
 
-    ``` {.line-numbers}
+    ```sh {.line-numbers}
     cd frontend
     yarn start
+    ```
+
+    or you want to deploy frontend on the server
+
+    ```sh {.line-numbers}
+    cd frontend
+    serve build -s -l 80
     ```
 
     **Note:** You have to satisfy the pre-requisities in [Frontend README.md](frontend/README.md)
