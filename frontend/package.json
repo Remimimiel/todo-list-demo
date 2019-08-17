@@ -19,7 +19,8 @@
   "devDependencies": {
     "react-app-rewired": "latest",
     "babel-plugin-import": "latest",
-    "customize-cra": "latest"
+    "customize-cra": "latest",
+    "redux-devtools-extension": "latest"
   },
   "scripts": {
     "start": "react-app-rewired start",

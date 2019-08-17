@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Card } from 'antd';
 
-import { VISIBILITY_FILTER } from '../../utils/constants';
+import { VISIBILITY_FILTER } from '../../constants/visibilityFilter';
 import TodoList from './TodoList';
 
 

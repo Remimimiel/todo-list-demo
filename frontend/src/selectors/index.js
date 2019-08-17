@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { VISIBILITY_FILTER } from '../utils/constants';
+import { VISIBILITY_FILTER } from '../constants/visibilityFilter';
 
 
 export const getTodos = (store) => store.todos;

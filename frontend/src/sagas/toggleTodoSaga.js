@@ -1,6 +1,6 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-import { TOGGLE_TODO, TOGGLE_TODO_ASYNC } from '../actions/actionTypes';
+import { TOGGLE_TODO, TOGGLE_TODO_ASYNC } from '../constants/actionTypes';
 import { getTodos } from '../selectors';
 import api from '../api';
 

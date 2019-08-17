@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/actionTypes';
+import { ADD_TODO, TOGGLE_TODO } from '../constants/actionTypes';
 
 
 let initialState = []

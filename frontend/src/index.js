@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './pages';
-import reducer from './reducers';
-import saga from './sagas';
+import getStore from './store';
 import api from './api';
 
 
@@ -18,20 +15,12 @@ const startApp = () => {
             preLoadState = { todos: response.data };
         }
 
-        // apply saga middleware
-        const sagaMiddleware = createSagaMiddleware();
-        const enhancer = applyMiddleware(sagaMiddleware);
-        // create store
-        const store = createStore(reducer, preLoadState, enhancer);
-        // run saga
-        sagaMiddleware.run(saga);
-
-        let root = document.getElementById('root');
+        const store = getStore(preLoadState);
         ReactDOM.render(
             <BrowserRouter>
                 <App store={store} />
             </BrowserRouter>,
-            root);
+            document.getElementById('root'));
     }).catch(err => console.log(err));
 }
 

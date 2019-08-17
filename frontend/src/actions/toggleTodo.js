@@ -1,4 +1,4 @@
-import { TOGGLE_TODO_ASYNC } from './actionTypes';
+import { TOGGLE_TODO_ASYNC } from '../constants/actionTypes';
 
 
 const toggleTodoAsync = (id) => ({
