@@ -59,12 +59,7 @@ ROOT_URLCONF = 'backend.urls'
 
 
 # CORS
-if DEBUG:
-    CORS_ORIGIN_ALLOW_ALL = True
-else:
-    CORS_ORIGIN_WHITELIST = (
-        'localhost:3000'
-    )
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Cache
