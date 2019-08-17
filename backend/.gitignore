@@ -3,3 +3,4 @@ backend/db.py
 **/__pycache__
 backend/dump.rdb
 nohup.out
+static
