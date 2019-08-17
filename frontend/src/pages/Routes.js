@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { CacheSwitch, CacheRoute } from 'react-router-cache-route';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Loading from './Loading';
 
@@ -11,14 +10,14 @@ const About = lazy(() => import('./about'));
 
 export default ({ store }) => (
     <Suspense fallback={<Loading />}>
-        <CacheSwitch>
+        <Switch>
             <Redirect exact from='/' to='/todo' />
             <Route exact path='/todo' render={() => (
                 <TodoApp store={store} />
             )} />
             <Route exact path='/click' component={Click} />
-            <CacheRoute exact path='/about' component={About} />
-        </CacheSwitch>
+            <Route exact path='/about' component={About} />
+        </Switch>
     </Suspense>
 
 );

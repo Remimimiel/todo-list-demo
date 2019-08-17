@@ -1,5 +1,7 @@
 import React from 'react';
 
+import RcQueueAnim from 'rc-queue-anim';
+
 import Todo from './Todo';
 import { getVisibleTodos } from '../../selectors';
 import { useShallowEqualSelector } from '../../hooks';
@@ -10,13 +12,18 @@ export default ({ visibilityFilter }) => {
         getVisibleTodos(state, visibilityFilter));
 
     return (
-        <ul className='todo-list'>
+        <RcQueueAnim
+            className='todo-list'
+            type={['right', 'left']}
+            ease={['easeOutQuart', 'easeInOutQuart']}
+            component="ul"
+            leaveReverse>
             {todos && todos.length ? todos.map((todo) =>
                 <Todo
                     key={`todo-${todo.id}`}
                     todo={todo}
                 />
             ) : 'No todos, yay!'}
-        </ul>
+        </RcQueueAnim>
     );
 }
