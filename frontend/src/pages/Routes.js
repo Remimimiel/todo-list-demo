@@ -19,5 +19,4 @@ export default ({ store }) => (
             <Route exact path='/about' component={About} />
         </Switch>
     </Suspense>
-
 );
