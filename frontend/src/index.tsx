@@ -6,22 +6,27 @@ import App from './pages/app';
 import getStore from './store';
 import api from './api';
 
+import { DeepPartial } from 'redux';
+import State from './types/State';
+
 
 const startApp = () => {
     api.todo.list().then((response) => {
-        // load data from database
-        let preLoadState = null;
+        let preLoadedState: DeepPartial<State> = {
+            todos: [],
+        };
         if (response.status === 200) {
-            preLoadState = { todos: response.data };
+            preLoadedState.todos = response.data;
         }
 
-        const store = getStore(preLoadState);
+        const store = getStore(preLoadedState);
         ReactDOM.render(
             <BrowserRouter>
                 <App store={store} />
             </BrowserRouter>,
-            document.getElementById('root'));
-    }).catch(err => console.log(err));
-}
+            document.getElementById('root')
+        );
+    }).catch((err) => console.log(err));
+};
 
 startApp();

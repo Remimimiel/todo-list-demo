@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { History } from 'history';
 
 import { Layout, Menu, Icon } from 'antd';
 
 const { Header } = Layout;
 
 
-export default ({ history }) => (
+export interface AppHeaderProps {
+    history: History;
+};
+
+export default (props: AppHeaderProps) => (
     <Header>
         <Menu
             className='app-header'
             theme='dark'
             mode='horizontal'
             defaultSelectedKeys={['todo']}
-            selectedKeys={[history.location.pathname]}
+            selectedKeys={[props.history.location.pathname]}
         >
             <Menu.Item key='todo'>
                 <Link to='/todo'>

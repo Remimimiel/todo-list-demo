@@ -22,7 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# host info
 /src/api/host.js
 
 nohup.out

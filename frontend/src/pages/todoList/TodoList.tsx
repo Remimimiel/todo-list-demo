@@ -6,10 +6,17 @@ import TodoItem from './TodoItem';
 import { getVisibleTodos } from '../../selectors';
 import { useShallowEqualSelector } from '../../hooks';
 
+import State from '../../types/State';
+import Todo from '../../types/Todo';
 
-export default ({ visibilityFilter }) => {
-    const todos = useShallowEqualSelector((state) =>
-        getVisibleTodos(state, visibilityFilter));
+
+export interface TodoListProps {
+    visibilityFilter: string;
+};
+
+export default (props: TodoListProps) => {
+    const todos = useShallowEqualSelector((state: State) =>
+        getVisibleTodos(state, props.visibilityFilter));
 
     return (
         <RcQueueAnim
@@ -18,7 +25,7 @@ export default ({ visibilityFilter }) => {
             ease={['easeOutQuart', 'easeInOutQuart']}
             component="ul"
             leaveReverse>
-            {todos && todos.length ? todos.map((todo) =>
+            {todos && todos.length ? todos.map((todo: Todo) =>
                 <TodoItem
                     key={`todo-${todo.id}`}
                     todo={todo}
@@ -26,4 +33,4 @@ export default ({ visibilityFilter }) => {
             ) : 'No todos, yay!'}
         </RcQueueAnim>
     );
-}
+};

@@ -1,10 +1,9 @@
 import { ADD_TODO_ASYNC } from '../constants/actionTypes';
 
-const addTodoAsync = (content) => ({
+
+export default (content: string) => ({
     type: ADD_TODO_ASYNC,
     payload: {
         content
     }
 });
-
-export default addTodoAsync;

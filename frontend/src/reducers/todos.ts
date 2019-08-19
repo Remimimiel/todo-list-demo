@@ -1,10 +1,13 @@
 import { ADD_TODO, TOGGLE_TODO } from '../constants/actionTypes';
 
+import Todo from '../types/Todo';
+import Action from '../types/Action';
 
-let initialState = []
 
-const todos = (state = initialState, action) => {
-    switch (action.type) {
+let initialState: Array<Todo> = [];
+
+export default (state: Array<Todo> = initialState, action: Action) => {
+    switch(action.type) {
         case ADD_TODO: {
             let { id, content, completed } = action.payload;
             if (id === -1) {
@@ -27,5 +30,3 @@ const todos = (state = initialState, action) => {
             return state;
     }
 };
-
-export default todos;
