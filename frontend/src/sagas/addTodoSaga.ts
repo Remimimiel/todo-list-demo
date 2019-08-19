@@ -1,10 +1,10 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { ADD_TODO, ADD_TODO_ASYNC } from '../constants/actionTypes';
 import api from '../api';
 
 import Todo from '../types/Todo';
 import Action from '../types/Action';
+import ActionTypes from '../types/ActionTypes';
 
 
 function* addTodo(action: Action) {
@@ -18,7 +18,7 @@ function* addTodo(action: Action) {
     try {
         yield call(api.todo.create, data);
         yield put({
-            type: ADD_TODO,
+            type: ActionTypes.ADD_TODO,
             payload: {
                 id: -1,
                 content,
@@ -31,5 +31,5 @@ function* addTodo(action: Action) {
 }
 
 export default function*() {
-    yield takeEvery(ADD_TODO_ASYNC, addTodo);
+    yield takeEvery(ActionTypes.ADD_TODO_ASYNC, addTodo);
 };

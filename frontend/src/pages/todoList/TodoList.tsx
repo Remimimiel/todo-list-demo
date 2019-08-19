@@ -8,15 +8,16 @@ import { useShallowEqualSelector } from '../../hooks';
 
 import State from '../../types/State';
 import Todo from '../../types/Todo';
+import FilterEnum from '../../types/FilterEnum';
 
 
 export interface TodoListProps {
-    visibilityFilter: string;
+    filter: FilterEnum;
 };
 
 export default (props: TodoListProps) => {
     const todos = useShallowEqualSelector((state: State) =>
-        getVisibleTodos(state, props.visibilityFilter));
+        getVisibleTodos(state, props.filter));
 
     return (
         <RcQueueAnim

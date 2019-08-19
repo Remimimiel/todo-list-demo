@@ -1,8 +1,8 @@
-import { ADD_TODO_ASYNC } from '../constants/actionTypes';
+import ActionTypes from '../types/ActionTypes';
 
 
 export default (content: string) => ({
-    type: ADD_TODO_ASYNC,
+    type: ActionTypes.ADD_TODO_ASYNC,
     payload: {
         content
     }

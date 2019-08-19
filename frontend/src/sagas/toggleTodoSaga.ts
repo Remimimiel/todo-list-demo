@@ -1,11 +1,11 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-import { TOGGLE_TODO, TOGGLE_TODO_ASYNC } from '../constants/actionTypes';
 import { getTodos } from '../selectors';
 import api from '../api';
 
 import Todo from '../types/Todo';
 import Action from '../types/Action';
+import ActionTypes from '../types/ActionTypes';
 
 
 function* toggleTodo(action: Action) {
@@ -21,7 +21,7 @@ function* toggleTodo(action: Action) {
     try {
         yield call(api.todo.update, id, data);
         yield put({
-            type: TOGGLE_TODO,
+            type: ActionTypes.TOGGLE_TODO,
             payload: {
                 id
             }
@@ -32,5 +32,5 @@ function* toggleTodo(action: Action) {
 }
 
 export default function* () {
-    yield takeEvery(TOGGLE_TODO_ASYNC, toggleTodo);
+    yield takeEvery(ActionTypes.TOGGLE_TODO_ASYNC, toggleTodo);
 };

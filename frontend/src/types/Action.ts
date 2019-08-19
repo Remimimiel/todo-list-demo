@@ -1,8 +1,11 @@
+import ActionTypes from './ActionTypes';
+
+
 export interface Payload {
     [propName: string]: any;
 };
 
 export default interface Action {
-    type: string;
+    type: ActionTypes;
     payload: Payload;
 };

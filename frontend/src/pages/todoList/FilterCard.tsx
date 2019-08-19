@@ -2,24 +2,25 @@ import React, { useState } from 'react';
 
 import { Card } from 'antd';
 
-import { VISIBILITY_FILTER } from '../../constants/visibilityFilter';
 import TodoList from './TodoList';
+
+import FilterEnum from '../../types/FilterEnum';
 
 
 const tabList = [{
-        key: VISIBILITY_FILTER.ALL,
+        key: FilterEnum.ALL,
         tab: 'All',
     }, {
-        key: VISIBILITY_FILTER.COMPLETED,
+        key: FilterEnum.COMPLETED,
         tab: 'Completed'
     }, {
-        key: VISIBILITY_FILTER.INCOMPLETE,
+        key: FilterEnum.INCOMPLETE,
         tab: 'Incomplete'
     }
 ];
 
 export default () => {
-    const [filter, setFilter] = useState(VISIBILITY_FILTER.ALL);
+    const [filter, setFilter] = useState(FilterEnum.ALL);
 
     return (
         <div className='visibility-filter'>
@@ -27,9 +28,9 @@ export default () => {
                 className='filter-card'
                 tabList={tabList}
                 activeTabKey={filter}
-                onTabChange={(key) => setFilter(key)}
+                onTabChange={(key) => setFilter(key as FilterEnum)}
             >
-                <TodoList visibilityFilter={filter} />
+                <TodoList filter={filter} />
             </Card>
         </div>
     );

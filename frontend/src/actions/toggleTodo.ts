@@ -1,8 +1,8 @@
-import { TOGGLE_TODO_ASYNC } from '../constants/actionTypes';
+import ActionTypes from '../types/ActionTypes';
 
 
 export default (id: number) => ({
-    type: TOGGLE_TODO_ASYNC,
+    type: ActionTypes.TOGGLE_TODO_ASYNC,
     payload: {
         id
     }
