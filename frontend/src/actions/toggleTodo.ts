@@ -1,11 +1,9 @@
 import { TOGGLE_TODO_ASYNC } from '../constants/actionTypes';
 
 
-const toggleTodoAsync = (id) => ({
+export default (id: number) => ({
     type: TOGGLE_TODO_ASYNC,
     payload: {
         id
     }
 });
-
-export default toggleTodoAsync;

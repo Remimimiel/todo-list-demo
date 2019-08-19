@@ -9,7 +9,7 @@ export default () => {
     const [input, setInput] = useState('');
     const dispatch = useDispatch();
     const addTodoAsyncCallback = useCallback(
-        (content) => dispatch(addTodoAsync(content)),
+        (content: string) => dispatch(addTodoAsync(content)),
         [dispatch]
     );
 
@@ -33,7 +33,6 @@ export default () => {
             />
             <Button
                 className='add-todo-button'
-                type='normal'
                 shape='circle'
                 icon='plus'
                 onClick={handleClick}

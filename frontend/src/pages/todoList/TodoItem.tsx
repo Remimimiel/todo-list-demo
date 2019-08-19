@@ -6,11 +6,17 @@ import { Checkbox } from 'antd';
 
 import toggleTodoAsync from '../../actions/toggleTodo';
 
+import Todo from '../../types/Todo';
 
-export default ({ todo }) => {
+
+export interface TodoProps {
+    todo: Todo
+};
+
+export default (props: TodoProps) => {
     const dispatch = useDispatch();
 
-    const id = todo.id;
+    const id = props.todo.id;
     const toggleTodoAsyncCallback = useCallback(
         () => dispatch(toggleTodoAsync(id)),
         [dispatch, id]
@@ -19,19 +25,16 @@ export default ({ todo }) => {
     return (
         <li className='todo-item'>
             <Checkbox
-                checked={todo.completed}
+                checked={props.todo.completed}
                 onChange={toggleTodoAsyncCallback}
             >
-                {/* cx()用来动态生成className
-                    todo.completed !== true -> className='todo-item-text'
-                    todo.completed === true -> className='todo-item-text-completed todo-item-text' */}
                 <span
                     className={cx(
                         'todo-item-text',
-                        todo && todo.completed && 'todo-item-text-completed'
+                        props.todo && props.todo.completed && 'todo-item-text-completed'
                     )}
                 >
-                    {todo.content}
+                    {props.todo.content}
                 </span>
             </Checkbox>
         </li>

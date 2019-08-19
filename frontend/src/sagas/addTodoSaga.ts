@@ -1,12 +1,16 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { ADD_TODO, ADD_TODO_ASYNC } from '../constants/actionTypes'
+import { ADD_TODO, ADD_TODO_ASYNC } from '../constants/actionTypes';
 import api from '../api';
 
+import Todo from '../types/Todo';
+import Action from '../types/Action';
 
-function* addTodo(action) {
+
+function* addTodo(action: Action) {
     const { content } = action.payload;
-    const data = {
+    const data: Todo = {
+        id: 0,
         content,
         completed: false
     };

@@ -6,7 +6,6 @@ import { VISIBILITY_FILTER } from '../../constants/visibilityFilter';
 import TodoList from './TodoList';
 
 
-// 卡片切换tab的key和标题
 const tabList = [{
         key: VISIBILITY_FILTER.ALL,
         tab: 'All',

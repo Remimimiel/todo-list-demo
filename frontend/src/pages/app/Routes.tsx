@@ -3,21 +3,26 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Loading from './Loading';
 
-const TodoApp = lazy(() => import('./todoApp'));
-const Click = lazy(() => import('./click'));
-const About = lazy(() => import('./about'));
+import Store from '../../types/Store';
+
+const TodoApp = lazy(() => import('../todoList'));
+const Click = lazy(() => import('../click'));
+const About = lazy(() => import('../about'));
 
 
-export default ({ store }) => (
+export interface RoutesProps {
+    store: Store;
+};
+
+export default (props: RoutesProps) => (
     <Suspense fallback={<Loading />}>
         <Switch>
             <Redirect exact from='/' to='/todo' />
             <Route exact path='/todo' render={() => (
-                <TodoApp store={store} />
+                <TodoApp store={props.store} />
             )} />
             <Route exact path='/click' component={Click} />
             <Route exact path='/about' component={About} />
         </Switch>
     </Suspense>
-
 );
