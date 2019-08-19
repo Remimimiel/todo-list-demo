@@ -1,6 +1,8 @@
 # todo-list-demo
 
-A simple demo for learning react, redux, antd and django-rest-framework.
+A simple demo for learning typescript, react, redux, antd and django-rest-framework.
+
+**Note:** You can check frontend code in javascript by switching branch to `js`.
 
 ## Run demo
 
@@ -34,6 +36,8 @@ Thanks to
 * [redux doc](https://redux.js.org/basics/example)
 
 * [react-redux doc](https://react-redux.js.org/introduction/basic-tutorial)
+
+* [react-redux hook api](https://github.com/reduxjs/react-redux/blob/master/docs/api/hooks.md)
 
 * [redux-saga doc](https://redux-saga.js.org/)
 

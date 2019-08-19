@@ -1,44 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run
 
-## Available Scripts
+1. Download denpendency
 
-In the project directory, you can run:
+    ```sh {.line-numbers}
+    # cnpm install
+    npm install
+    ```
 
-### `npm start`
+2. Create `src/api/host.ts` and specify the host info
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Get start
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+    ```sh {.line-numbers}
+    yarn start
+    ```
 
-### `npm test`
+4. Open browser and visit `http://localhost:3000`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deploy
 
-### `npm run build`
+1. Download denpendency
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```sh {.line-numbers}
+    cnpm install
+    ```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+2. Create `src/api/host.js` and specify the host info
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Build
 
-### `npm run eject`
+    ```sh {.line-numbers}
+    yarn build
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Get start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```sh {.line-numbers}
+    # yarn add serve
+    serve build -s -l 80
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Open browser and visit `http://localhost`
