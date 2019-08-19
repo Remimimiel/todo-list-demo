@@ -2,7 +2,7 @@ import React from 'react';
 
 import RcQueueAnim from 'rc-queue-anim';
 
-import Todo from './Todo';
+import TodoItem from './TodoItem';
 import { getVisibleTodos } from '../../selectors';
 import { useShallowEqualSelector } from '../../hooks';
 
@@ -19,7 +19,7 @@ export default ({ visibilityFilter }) => {
             component="ul"
             leaveReverse>
             {todos && todos.length ? todos.map((todo) =>
-                <Todo
+                <TodoItem
                     key={`todo-${todo.id}`}
                     todo={todo}
                 />

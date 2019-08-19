@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { VISIBILITY_FILTER } from '../constants/visibilityFilter';
 
 
-export const getTodos = (store) => store.todos;
+export const getTodos = (state) => state.todos;
 export const getVisibilityFilter = (_, visibilityFilter) => {
     return visibilityFilter;
 }
@@ -23,5 +23,4 @@ export const getVisibleTodos = createSelector(
                 return todos;
         }
     }
-
 );

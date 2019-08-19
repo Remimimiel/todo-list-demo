@@ -3,9 +3,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Loading from './Loading';
 
-const TodoApp = lazy(() => import('./todoApp'));
-const Click = lazy(() => import('./click'));
-const About = lazy(() => import('./about'));
+const TodoApp = lazy(() => import('../todoList'));
+const Click = lazy(() => import('../click'));
+const About = lazy(() => import('../about'));
 
 
 export default ({ store }) => (

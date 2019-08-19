@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Layout, Menu, Icon } from 'antd';
 
-import Routes from './Routes';
-
-import './App.css';
+const { Header } = Layout;
 
 
-const AppHeader = ({ history }) => (
-    <Layout.Header>
+export default ({ history }) => (
+    <Header>
         <Menu
             className='app-header'
             theme='dark'
@@ -36,27 +34,5 @@ const AppHeader = ({ history }) => (
                 </Link>
             </Menu.Item>
         </Menu>
-    </Layout.Header>
+    </Header>
 );
-
-const AppContent = ({ store }) => (
-    <Layout.Content className='app-content'>
-        <Routes store={store} />
-    </Layout.Content>
-);
-
-const AppFooter = () => (
-    <Layout.Footer className='app-footer'>
-        zx55 © All rights reserved.
-    </Layout.Footer>
-);
-
-const App = ({ store, history }) => (
-    <Layout className='app'>
-        <AppHeader history={history} />
-        <AppContent store={store} />
-        <AppFooter />
-    </Layout>
-);
-
-export default withRouter(App);
